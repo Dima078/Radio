@@ -155,16 +155,16 @@ class RadioTest {
     }
 
     @Test
-    public void shouldSetNumberStationTest() {
-        Radio radio = new Radio(10, 50);
+    public void shouldGetNumberStationTest() {
+        Radio radio = new Radio(50);
         int expected = 50;
         int actual = radio.getNumberStation();
         assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldSetQWENumberStationTest() {
-        Radio radio = new Radio(10, 50);
+    public void shouldSetNumberStationTest() {
+        Radio radio = new Radio(50);
         int expected = 30;
         radio.setNumberStation(30);
         int actual = radio.getNumberStation();
@@ -173,8 +173,9 @@ class RadioTest {
 
     @Test
     public void shouldSetNextNumberStationTest() {
-        Radio radio = new Radio(49, 50);
+        Radio radio = new Radio(50);
         int expected = 0;
+        radio.setCurrentStation(49);
         radio.nextStation();
         int actual = radio.getCurrentStation();
         assertEquals(expected, actual);
@@ -182,8 +183,9 @@ class RadioTest {
 
     @Test
     public void shouldSetPrevNumberStationTest() {
-        Radio radio = new Radio(0, 50);
+        Radio radio = new Radio(50);
         int expected = 49;
+        radio.setCurrentStation(0);
         radio.prevStation();
         int actual = radio.getCurrentStation();
         assertEquals(expected, actual);
